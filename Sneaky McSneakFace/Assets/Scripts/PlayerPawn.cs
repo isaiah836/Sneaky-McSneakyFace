@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class controller : MonoBehaviour {
-
-	public Vector3 homeposition;
-    public Pawn pawn;
+public class PlayerPawn : Pawn {
 
 	// Use this for initialization
-	public virtual void Start () {
-        pawn = GetComponent<Pawn>;
+	public override void Attack()
+	{
+		base.Start();
+	}
+	public override void Attack () {
+		Debug.Log("PEW PEW PEW");
 	}
 	
 	// Update is called once per frame
