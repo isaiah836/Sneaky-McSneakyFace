@@ -11,14 +11,12 @@ public abstract class Pawn : MonoBehaviour {
 	public float rotationSpeed;
 
 	// Use this for initialization
-	public virtual void Start()
-	{
-		tf = GetComponent<Transform>();
-		homePosition = tf.position;
-	}
-	public virtual void Attack () {
-		Debug.Log("This is a Parent Attack");
-	}
+	public abstract void RotateLeft();
+	public abstract void RotateRight();
+	public abstract void MoveForward();
+	public abstract void MoveBack();
+
+	public abstract void Shoot();
 	
 	// Update is called once per frame
 	void Update () {
