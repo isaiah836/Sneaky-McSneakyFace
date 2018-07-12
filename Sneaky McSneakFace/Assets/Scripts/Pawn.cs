@@ -4,9 +4,6 @@ using UnityEngine;
 
 public abstract class Pawn : MonoBehaviour {
 
-	public Transform tf;
-	public Vector3 homePosition;
-
 	public float moveSpeed;
 	public float rotationSpeed;
 

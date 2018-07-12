@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	public GameObject player;
-	public float moveSpeed;
-	public float turnSpeed;
-	public int lives;
+	public float playerMoveSpeed;
+	public float playerTurnSpeed;
+	public float playerMaxHealth;
+	public int playerCurrentHealth;
+
 	// Use this for initialization
 	void Awake () {
 		//Checks to see if there is another GameManger

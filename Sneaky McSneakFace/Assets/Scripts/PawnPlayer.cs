@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PawnPlayer : Pawn
 {
-
 	public Transform tf;
-	public Rigidbody2D rb;
+	//public Rigidbody2D rb;
 
+	//initialize
+	void Start()
+	{
+		tf = GetComponent<Transform>();
+	}
 	// Update is called once per frame
 	void Update()
 	{
@@ -15,19 +19,19 @@ public class PawnPlayer : Pawn
 	}
 	public override void RotateLeft()
 	{
-		tf.Rotate(Vector3.forward * GameManager.instance.turnSpeed * Time.deltaTime);
+		tf.Rotate(Vector3.forward * GameManager.instance.playerTurnSpeed * Time.deltaTime);
 	}
 	public override void RotateRight()
 	{
-		tf.Rotate(Vector3.back * GameManager.instance.turnSpeed * Time.deltaTime);
+		tf.Rotate(Vector3.back * GameManager.instance.playerTurnSpeed * Time.deltaTime);
 	}
 	public override void MoveForward()
 	{
-		tf.position += tf.rotation * (Vector3.up * GameManager.instance.moveSpeed * Time.deltaTime);
+		tf.position += tf.rotation * (Vector3.up * GameManager.instance.playerMoveSpeed * Time.deltaTime);
 	}
 	public override void MoveBack()
 	{
-		tf.position += tf.rotation * (Vector2.down * GameManager.instance.moveSpeed * Time.deltaTime);
+		tf.position += tf.rotation * (Vector2.down * GameManager.instance.playerMoveSpeed * Time.deltaTime);
 	}
 	public override void Shoot()
 	{

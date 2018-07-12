@@ -9,7 +9,7 @@ public abstract class controller : MonoBehaviour {
 
 	// Use this for initialization
 	public virtual void Start () {
-      
+		pawn = GetComponent<Pawn>();
 	}
 	
 	// Update is called once per frame
