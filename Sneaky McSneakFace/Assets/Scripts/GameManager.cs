@@ -8,9 +8,14 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject player;
 	public float playerMoveSpeed;
+	public float runSpeedmultiplier;
 	public float playerTurnSpeed;
 	public float playerMaxHealth;
 	public int playerCurrentHealth;
+
+	public GameObject enemyAI;
+	public float enemyRotateSpeed;
+	public float enemyTimeToMove;
 
 	// Use this for initialization
 	void Awake () {

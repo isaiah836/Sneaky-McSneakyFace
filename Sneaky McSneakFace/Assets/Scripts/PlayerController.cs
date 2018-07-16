@@ -28,7 +28,14 @@ public class PlayerController : controller {
 		//CChecks every frame if the up or down or w or s keys are pressed
 		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
-			pawn.MoveForward();
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				pawn.RunForward();
+			}
+			else
+			{
+				pawn.MoveForward();
+			}
 		}
 		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{

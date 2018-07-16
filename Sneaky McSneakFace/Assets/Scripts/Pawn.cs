@@ -4,16 +4,56 @@ using UnityEngine;
 
 public abstract class Pawn : MonoBehaviour {
 
-	public float moveSpeed;
-	public float rotationSpeed;
+	public Transform tf;
 
 	// Use this for initialization
-	public abstract void RotateLeft();
-	public abstract void RotateRight();
-	public abstract void MoveForward();
-	public abstract void MoveBack();
+	public virtual void Start()
+	{
+		tf = GetComponent<Transform>();
+	}
+	public virtual void RotateLeft()
+	{
 
-	public abstract void Shoot();
+	}
+	public virtual void RotateRight()
+	{
+
+	}
+	public virtual void MoveForward()
+	{
+
+	}
+	public virtual void RunForward()
+	{
+
+	}
+	public virtual void MoveBack()
+	{
+
+	}
+
+	public virtual void AIPatrol()
+	{
+
+	}
+	public virtual void HearPlayer(bool canHear)
+	{
+
+	}
+	public virtual void SeePlayer(bool CanSee)
+	{
+
+	}
+	public virtual void ChasePlayer()
+	{
+
+	}
+	
+
+	public virtual void Shoot()
+	{
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
