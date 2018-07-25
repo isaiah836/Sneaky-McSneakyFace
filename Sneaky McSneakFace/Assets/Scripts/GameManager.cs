@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject enemyAI;
 	public float enemyRotateSpeed;
 	public float enemyTimeToMove;
+	public float enemyMoveSpeed;
 
 	// Use this for initialization
 	void Awake () {
