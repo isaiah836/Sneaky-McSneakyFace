@@ -20,37 +20,29 @@ public class Enemy_AI_Pawn : Pawn {
 	}
 	public override void HearPlayer(bool canHear, bool canSee)
 	{
-		if (canHear == true)
-		{
-			Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
-			LocalPosition.Normalize();
-			float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0f, 0f, angle);
-			if (canSee == true)
-			{
-				ChasePlayer(true);
-			}
-		}
-		
-		{
-
-		}
+		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+		LocalPosition.Normalize();
+		float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0f, 0f, angle);
 	}
 
 	public override void ChasePlayer(bool canSee)
 	{
-		if (canSee == true)
-		{
-			Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
-			LocalPosition.Normalize();
-			float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
-			Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
-			tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
-		}
-		else
-		{
-
-		}
+	    Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+	    LocalPosition.Normalize();
+	    float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+	    Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
+	    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
+	    tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
+		
 	}
+    public override void ReturntoHomePosition()
+    {
+        Vector3 defendLocation = Homeposition - tf.position;
+        defendLocation.Normalize();
+        float angle = Mathf.Atan2(Homeposition.y, Homeposition.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
+        tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
+    }
 }

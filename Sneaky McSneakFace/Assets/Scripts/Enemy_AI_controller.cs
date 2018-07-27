@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy_AI_controller : controller {
 
 	float lastMovedTime;
+    public bool canSee;
+    public bool canHear;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +19,27 @@ public class Enemy_AI_controller : controller {
 		{
 			lastMovedTime = Time.time;
 			pawn.AIPatrol();
-			//
 		}
-	}
+        else if (canHear == true)
+        {
+            HearPlayer();
+            if (canSee == true)
+            {
+                ChasePlayer();
+            }
+            else if (canSee == false)
+            {
+                ReturntoHomePosition();
+            }
+            
+        }
+        else if (canSee == true)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            ()
+        }
+    }
 }
