@@ -18,24 +18,39 @@ public class Enemy_AI_Pawn : Pawn {
 	{
 		tf.Rotate(Vector3.forward * GameManager.instance.enemyRotateSpeed * Time.deltaTime);
 	}
-	public override void HearPlayer(bool canHear)
+	public override void HearPlayer(bool canHear, bool canSee)
 	{
-		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
-		LocalPosition.Normalize();
-		float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0f, 0f, angle);
-	}
-	public override void SeePlayer(bool CanSee)
-	{
+		if (canHear == true)
+		{
+			Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+			LocalPosition.Normalize();
+			float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0f, 0f, angle);
+			if (canSee == true)
+			{
+				ChasePlayer(true);
+			}
+		}
+		
+		{
 
+		}
 	}
-	public override void ChasePlayer()
+
+	public override void ChasePlayer(bool canSee)
 	{
-		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
-		LocalPosition.Normalize();
-		float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
-		Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
-		tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
+		if (canSee == true)
+		{
+			Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+			LocalPosition.Normalize();
+			float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+			Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
+			tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
+		}
+		else
+		{
+
+		}
 	}
 }

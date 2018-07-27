@@ -17,6 +17,7 @@ public class Enemy_AI_controller : controller {
 		{
 			lastMovedTime = Time.time;
 			pawn.AIPatrol();
+			//
 		}
 	}
 }

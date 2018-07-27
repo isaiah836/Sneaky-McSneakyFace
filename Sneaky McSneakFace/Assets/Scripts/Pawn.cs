@@ -36,15 +36,11 @@ public abstract class Pawn : MonoBehaviour {
 	{
 
 	}
-	public virtual void HearPlayer(bool canHear)
+	public virtual void HearPlayer(bool canHear, bool canSee)
 	{
 
 	}
-	public virtual void SeePlayer(bool CanSee)
-	{
-
-	}
-	public virtual void ChasePlayer()
+	public virtual void ChasePlayer(bool canSee)
 	{
 
 	}
