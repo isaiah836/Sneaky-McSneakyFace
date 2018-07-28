@@ -152,7 +152,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114496254490832704, guid: 7d4ed02347636e6488af6a73c42d9d36, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d4ed02347636e6488af6a73c42d9d36, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &18953413
@@ -605,6 +606,8 @@ MonoBehaviour:
   enemyRotateSpeed: 220
   enemyTimeToMove: 0
   enemyMoveSpeed: 0
+  lastSeenLength: 0
+  enemySightDistance: 0
 --- !u!1001 &236160753
 Prefab:
   m_ObjectHideFlags: 0
@@ -772,7 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf04ee38a5f4a6345a9556ff027d2611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeposition: {x: 0, y: 0, z: 0}
   pawn: {fileID: 682233205}
 --- !u!212 &307025069
 SpriteRenderer:
@@ -2227,12 +2229,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4235058635664240, guid: 7d4ed02347636e6488af6a73c42d9d36,
     type: 2}
   m_PrefabInternal: {fileID: 11396194}
---- !u!114 &969189644 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114496254490832704, guid: 7d4ed02347636e6488af6a73c42d9d36,
-    type: 2}
-  m_PrefabInternal: {fileID: 11396194}
-  m_Script: {fileID: 11500000, guid: c04d886400f2ba54cacf4bf6ab3ded1a, type: 3}
 --- !u!1001 &971472082
 Prefab:
   m_ObjectHideFlags: 0
@@ -3206,7 +3202,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1632327292}
-  - component: {fileID: 1632327293}
   m_Layer: 0
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -3228,19 +3223,6 @@ Transform:
   m_Father: {fileID: 679868758}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.18101}
---- !u!114 &1632327293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632327291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609ac79336a7f2a49891d638a6296028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  homeposition: {x: 16.33, y: -5.27, z: -0.01912212}
-  pawn: {fileID: 969189644}
 --- !u!4 &1648776889 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4137521566848188, guid: c73d20012ee2722418fa2275597a726c,

@@ -7,6 +7,7 @@ public class Enemy_AI_controller : controller {
 	float lastMovedTime;
     public bool canSee;
     public bool canHear;
+	float lastSeen;
 
 	// Use this for initialization
 	void Start () {
@@ -15,31 +16,44 @@ public class Enemy_AI_controller : controller {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Time.time - lastMovedTime) > GameManager.instance.enemyTimeToMove)
+
+		if ((Time.time - lastMovedTime) > GameManager.instance.enemyTimeToMove && canSee == false)
 		{
+			pawn.ReturntoHomePosition();
 			lastMovedTime = Time.time;
+			RaycastHit2D  hit2D = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.forward), GameManager.instance.enemySightDistance);
 			pawn.AIPatrol();
+			if (hit2D.collider != null && hit2D.collider.tag == "playersound")
+			{
+				canHear = true;
+			}
+			else if (hit2D.collider != null && hit2D.collider.tag == "player")
+			{
+				canSee = true;
+			}
 		}
         else if (canHear == true)
         {
-            HearPlayer();
-            if (canSee == true)
+            pawn.HearPlayer();
+
+			if (canSee == true)
             {
-                ChasePlayer();
+				lastSeen = Time.time;
+                pawn.ChasePlayer();
             }
             else if (canSee == false)
             {
-                ReturntoHomePosition();
+                pawn.ReturntoHomePosition();
             }
             
         }
         else if (canSee == true)
         {
-            ChasePlayer();
+            pawn.ChasePlayer();
         }
-        else
+        else  
         {
-            ()
+            
         }
     }
 }
