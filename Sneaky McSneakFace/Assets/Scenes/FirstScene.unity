@@ -602,12 +602,12 @@ MonoBehaviour:
   playerTurnSpeed: 220
   playerMaxHealth: 0
   playerCurrentHealth: 0
-  enemyAI: {fileID: 0}
+  enemyAI: {fileID: 1632327291}
   enemyRotateSpeed: 220
-  enemyTimeToMove: 0
-  enemyMoveSpeed: 0
-  lastSeenLength: 0
-  enemySightDistance: 0
+  enemyTimeToMove: 2
+  enemyMoveSpeed: 1.5
+  lastSeenLength: 3
+  enemySightDistance: 10
 --- !u!1001 &236160753
 Prefab:
   m_ObjectHideFlags: 0
@@ -2647,6 +2647,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c73d20012ee2722418fa2275597a726c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1369385080 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1889226078650630, guid: 7d4ed02347636e6488af6a73c42d9d36,
+    type: 2}
+  m_PrefabInternal: {fileID: 11396194}
+--- !u!114 &1369385081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1369385080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04d886400f2ba54cacf4bf6ab3ded1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tf: {fileID: 0}
+  guardPosition: {x: 2.39, y: -0.43, z: 4.286782}
 --- !u!1 &1380545529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,6 +3220,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1632327292}
+  - component: {fileID: 1632327293}
   m_Layer: 0
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -3223,6 +3242,20 @@ Transform:
   m_Father: {fileID: 679868758}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.18101}
+--- !u!114 &1632327293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1632327291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609ac79336a7f2a49891d638a6296028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pawn: {fileID: 1369385081}
+  canSee: 0
+  canHear: 0
 --- !u!4 &1648776889 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4137521566848188, guid: c73d20012ee2722418fa2275597a726c,

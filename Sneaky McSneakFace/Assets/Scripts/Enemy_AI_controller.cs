@@ -34,7 +34,16 @@ public class Enemy_AI_controller : controller {
 		}
         else if (canHear == true)
         {
+			RaycastHit2D hit2D = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.forward), GameManager.instance.enemySightDistance);
             pawn.HearPlayer();
+			if (hit2D.collider != null && hit2D.collider.tag == "player")
+			{
+				canSee = true;
+			}
+			else
+			{
+				canSee = false;
+			}
 
 			if (canSee == true)
             {
@@ -50,10 +59,7 @@ public class Enemy_AI_controller : controller {
         else if (canSee == true)
         {
             pawn.ChasePlayer();
-        }
-        else  
-        {
-            
+			lastSeen = Time.time;
         }
     }
 }
