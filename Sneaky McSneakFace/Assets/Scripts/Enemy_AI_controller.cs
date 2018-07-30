@@ -16,23 +16,26 @@ public class Enemy_AI_controller : controller {
 	
 	// Update is called once per frame
 	void Update () {
-
+        //this is the normal state of the AI it spins
 		if ((Time.time - lastMovedTime) > GameManager.instance.enemyTimeToMove && canSee == false)
 		{
 			pawn.ReturntoHomePosition();
 			lastMovedTime = Time.time;
-			RaycastHit2D  hit2D = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.forward), GameManager.instance.enemySightDistance);
+			RaycastHit2D  hit2D = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.up), GameManager.instance.enemySightDistance);
 			pawn.AIPatrol();
+            Debug.DrawRay(transform.position, (Vector3.forward * 1000), Color.green);
 			if (hit2D.collider != null && hit2D.collider.tag == "playersound")
 			{
 				canHear = true;
 			}
-			else if (hit2D.collider != null && hit2D.collider.tag == "player")
+			if (hit2D.collider != null && hit2D.collider.tag == "player")
 			{
 				canSee = true;
 			}
-		}
-        else if (canHear == true)
+            Debug.DrawRay(transform.position, (Vector3.forward * 10), Color.green);
+        }
+        //Checks to see if ai can hear the player
+        if (canHear == true)
         {
 			RaycastHit2D hit2D = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.forward), GameManager.instance.enemySightDistance);
             pawn.HearPlayer();
@@ -50,13 +53,13 @@ public class Enemy_AI_controller : controller {
 				lastSeen = Time.time;
                 pawn.ChasePlayer();
             }
-            else if (canSee == false)
+            if (canSee == false)
             {
                 pawn.ReturntoHomePosition();
             }
             
         }
-        else if (canSee == true)
+        if (canSee == true)
         {
             pawn.ChasePlayer();
 			lastSeen = Time.time;
