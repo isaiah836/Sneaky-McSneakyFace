@@ -6,6 +6,8 @@ TagManager:
   tags:
   - wall
   - player
+  - BackGround
+  - playersound
   layers:
   - Default
   - TransparentFX
