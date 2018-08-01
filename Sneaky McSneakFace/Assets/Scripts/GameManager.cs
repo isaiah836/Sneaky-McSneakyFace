@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour {
 	public float playerTurnSpeed;
 	public float playerMaxHealth;
 	public int playerCurrentHealth;
+    public float playerSound;
 
 	public GameObject enemyAI;
+    public List<Active_Enemies> enemy;
 	public float enemyRotateSpeed;
 	public float enemyTimeToMove;
 	public float enemyMoveSpeed;

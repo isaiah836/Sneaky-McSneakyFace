@@ -25,9 +25,19 @@ public class PlayerController : controller {
 			pawn.RotateRight();
 		}
 
-		//CChecks every frame if the up or down or w or s keys are pressed
-		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        //checks to see if the player is running
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            GameManager.instance.playerSound++;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            GameManager.instance.playerSound--;
+        }
+        //CChecks every frame if the up or down or w or s keys are pressed
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
+            
 			if (Input.GetKey(KeyCode.LeftShift))
 			{
 				pawn.RunForward();
@@ -35,8 +45,9 @@ public class PlayerController : controller {
 			else
 			{
 				pawn.MoveForward();
-			}
-		}
+            }
+        }
+        
 		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{
 			pawn.MoveBack();

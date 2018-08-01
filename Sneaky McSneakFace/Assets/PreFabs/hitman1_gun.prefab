@@ -22,8 +22,11 @@ GameObject:
   - component: {fileID: 212173544823968770}
   - component: {fileID: 50686144518808982}
   - component: {fileID: 60705017874258922}
-  - component: {fileID: 114496254490832704}
-  m_Layer: 0
+  - component: {fileID: 114989911401311378}
+  - component: {fileID: 114738880562382958}
+  - component: {fileID: 114432144195065642}
+  - component: {fileID: 58178301281801042}
+  m_Layer: 2
   m_Name: hitman1_gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889226078650630}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.39, y: -0.43, z: 4.286782}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7082233, w: 0.7059885}
+  m_LocalPosition: {x: 16.752443, y: -2.5486526, z: -4.0191216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,6 +66,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58178301281801042
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889226078650630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000023841858, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!60 &60705017874258922
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -99,7 +117,34 @@ PolygonCollider2D:
       - {x: 0.22176218, y: -0.13690495}
       - {x: 0.23047614, y: -0.0846194}
       - {x: 0.23047614, y: -0.06147605}
---- !u!114 &114496254490832704
+--- !u!114 &114432144195065642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889226078650630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304d6066c6509374fa07691c4e0d8768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114738880562382958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889226078650630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609ac79336a7f2a49891d638a6296028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pawn: {fileID: 114989911401311378}
+  distanceFromPlayer: {x: 0, y: 0, z: 0}
+  canSee: 0
+  canHear: 0
+  pt: {fileID: 0}
+--- !u!114 &114989911401311378
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 0}
+  guardPosition: {x: 2.39, y: -0.43, z: 4.286782}
 --- !u!212 &212173544823968770
 SpriteRenderer:
   m_ObjectHideFlags: 1

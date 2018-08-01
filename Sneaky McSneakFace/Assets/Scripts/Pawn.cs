@@ -11,6 +11,7 @@ public abstract class Pawn : MonoBehaviour {
 	{
 		tf = GetComponent<Transform>();
 	}
+    //Movement for the player
 	public virtual void RotateLeft()
 	{
 
@@ -32,6 +33,8 @@ public abstract class Pawn : MonoBehaviour {
 
 	}
 
+
+    //this is the states for the AI 
 	public virtual void AIPatrol()
 	{
 
@@ -47,11 +50,6 @@ public abstract class Pawn : MonoBehaviour {
 	
 
 	public virtual void Shoot()
-	{
-
-	}
-
-	public virtual void ReturntoHomePosition()
 	{
 
 	}

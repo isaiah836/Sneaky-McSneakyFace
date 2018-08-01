@@ -35,6 +35,7 @@ public class PawnPlayer : Pawn
 	{
 		tf.position += tf.rotation * (Vector3.right * (GameManager.instance.playerMoveSpeed * GameManager.instance.runSpeedmultiplier) * Time.deltaTime);
 	}
+
 	public override void Shoot()
 	{
 		Debug.Log("PEW PEW PEW");

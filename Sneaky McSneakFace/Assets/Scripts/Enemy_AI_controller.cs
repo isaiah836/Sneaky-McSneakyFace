@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_AI_controller : controller {
 
-    public Vector2 distanceFromPlayer;
+    public Vector3 distanceFromPlayer;
     public bool canSee;
     public bool canHear;
     private Transform tf;
@@ -19,28 +19,25 @@ public class Enemy_AI_controller : controller {
 	void Update () {
         
         distanceFromPlayer = GameManager.instance.player.transform.position - tf.position;
-        pawn.ReturntoHomePosition();
+        distanceFromPlayer.Normalize();
         RaycastHit2D hit2D = Physics2D.Raycast(tf.position, distanceFromPlayer, GameManager.instance.enemySightDistance);
-        Debug.DrawRay(tf.position,  * GameManager.instance.enemySightDistance, Color.green);
+        Debug.DrawRay(tf.position, distanceFromPlayer * GameManager.instance.enemySightDistance, Color.green);
         Debug.Log(hit2D.collider.name);
         //this is the normal state of the AI it spins
-        if (canSee == false)
-		{
-			pawn.AIPatrol();
-			if (hit2D.collider != null && hit2D.collider.tag == "playersound")
-			{
-				canHear = true;
-			}
-			else if (hit2D.collider != null && hit2D.collider.name == "PlayerPawn")
-			{
-				canSee = true;
-			}
-            else if (hit2D.collider != null && hit2D.collider.name == "Building_Walls")
-            {
-                canSee = false;
-            }
-            Debug.DrawRay(transform.position, (Vector3.forward * 10), Color.green);
+        if (!canSee && !canHear)
+        {
+            pawn.AIPatrol();
         }
+		if (hit2D.collider.name == "PlayerPawn")
+		{
+			canSee = true;
+		}
+        if (hit2D.collider.name.Contains("Building_Walls"))
+        {
+            canSee = false;
+        }
+        Debug.DrawRay(transform.position, (Vector3.forward * 10), Color.green);
+
         //Checks to see if ai can hear the player
         if (canHear == true)
         {
@@ -57,10 +54,6 @@ public class Enemy_AI_controller : controller {
 			if (canSee == true)
             {
                 pawn.ChasePlayer();
-            }
-            if (canSee == false)
-            {
-                pawn.ReturntoHomePosition();
             }
             
         }

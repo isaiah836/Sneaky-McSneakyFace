@@ -37,13 +37,4 @@ public class Enemy_AI_Pawn : Pawn {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
             tf.Translate(Vector3.right * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
 	}
-    public override void ReturntoHomePosition()
-    {
-       // Vector3 defendLocation = guardPosition - tf.position;
-        //defendLocation.Normalize();
-        //float angle = Mathf.Atan2(guardPosition.y, guardPosition.x) * Mathf.Rad2Deg;
-        //Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotateSpeed * Time.deltaTime);
-        //tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyMoveSpeed);
-    }
 }
