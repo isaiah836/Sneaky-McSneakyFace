@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	public GameObject player;
+    public Transform playerP;
 	public float playerMoveSpeed;
 	public float runSpeedmultiplier;
 	public float playerTurnSpeed;
