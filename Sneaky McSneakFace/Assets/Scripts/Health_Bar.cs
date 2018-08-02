@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Health_Bar : MonoBehaviour {
-
-	public Image imageComponent; //public variable for image component.
+    //C63939 code for colour red
+    public Image imageComponent; //public variable for image component.
 
 	// Use this for initialization
 	void Start () {

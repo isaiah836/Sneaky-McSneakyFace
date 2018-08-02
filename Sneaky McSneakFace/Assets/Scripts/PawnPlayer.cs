@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PawnPlayer : Pawn
 {
-
+    public GameObject bulletPrefab;
 	//initialize
 	public override void Start()
 	{
@@ -38,6 +38,6 @@ public class PawnPlayer : Pawn
 
 	public override void Shoot()
 	{
-		Debug.Log("PEW PEW PEW");
+        GameObject bullet = Instantiate(bulletPrefab, tf.position, GameManager.instance.bulletSpawn.transform.rotation);
 	}
 }

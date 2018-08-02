@@ -275,6 +275,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4108494321491076, guid: cf92ac41d707c4c43a9feac226b20d10,
     type: 2}
   m_PrefabInternal: {fileID: 1706732794}
+--- !u!1 &219299530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 219299531}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &219299531
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219299530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 682233207}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &227891289
 Prefab:
   m_ObjectHideFlags: 0
@@ -382,8 +410,8 @@ MonoBehaviour:
   playerMoveSpeed: 1.5
   runSpeedmultiplier: 2
   playerTurnSpeed: 220
-  playerMaxHealth: 0
-  playerCurrentHealth: 0
+  playerMaxHealth: 10
+  playerCurrentHealth: 5
   playerSound: 0
   enemyAI: {fileID: 0}
   enemy: []
@@ -999,6 +1027,41 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 223945151676790426, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.22258809
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075707674708598, guid: efc04aedcbb94ff4b839f9650afb2020,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.22258809
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efc04aedcbb94ff4b839f9650afb2020, type: 2}
   m_IsPrefabParent: 0

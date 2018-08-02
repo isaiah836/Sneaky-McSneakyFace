@@ -10,6 +10,7 @@ public abstract class Pawn : MonoBehaviour {
 	public virtual void Start()
 	{
 		tf = GetComponent<Transform>();
+
 	}
     //Movement for the player
 	public virtual void RotateLeft()
