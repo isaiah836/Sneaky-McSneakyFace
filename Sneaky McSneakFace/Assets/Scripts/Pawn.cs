@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Pawn : MonoBehaviour {
 
 	public Transform tf;
+	public GameObject bulletPrefab;
 
 	// Use this for initialization
 	public virtual void Start()
@@ -52,7 +53,7 @@ public abstract class Pawn : MonoBehaviour {
 
 	public virtual void Shoot()
 	{
-
+		
 	}
 	
 	// Update is called once per frame

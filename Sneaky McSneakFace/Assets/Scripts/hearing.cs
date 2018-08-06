@@ -5,6 +5,7 @@ using UnityEngine;
 public class hearing : MonoBehaviour {
 
     public bool inTrigger;
+	public GameObject myAI;
 
 	// Use this for initialization
 	void Start () {
@@ -13,23 +14,23 @@ public class hearing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (inTrigger)
+        if (inTrigger)// checks every update if the player is withing hearing range and if the player is making noise if so then the enemy ai can hear the player
         {
             if (GameManager.instance.playerSound > 0)
             {
-                gameObject.GetComponent<Enemy_AI_controller>().canHear = true;
+                myAI.GetComponent<Enemy_AI_controller>().canHear = true;
             }
             else if (GameManager.instance.playerSound == 0)
             {
-                gameObject.GetComponent<Enemy_AI_controller>().canHear = false;
+                myAI.GetComponent<Enemy_AI_controller>().canHear = false;
             }
         }
-        if (!inTrigger)
+        if (!inTrigger) // if not then the enemy ai cant hear him
         {
-            gameObject.GetComponent<Enemy_AI_controller>().canHear = false;
+            myAI.GetComponent<Enemy_AI_controller>().canHear = false;
         }
     }
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D coll) //if the player has enter this collider then the player is withing listening range of enemy ai
     {
         if (coll.gameObject.tag == "player")
         {
@@ -37,7 +38,7 @@ public class hearing : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit2D(Collider2D coll)
+    void OnTriggerExit2D(Collider2D coll) // if the player exits this collider then the player is out of hearing range of the enemy ai
     {
         if (coll.gameObject.tag == "player")
         {

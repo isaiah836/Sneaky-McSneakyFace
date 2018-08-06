@@ -8,6 +8,7 @@ TagManager:
   - player
   - BackGround
   - playersound
+  - enemy
   layers:
   - Default
   - TransparentFX

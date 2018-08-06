@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class Enemy_AI_controller : controller {
 
-    public Vector3 distanceFromPlayer;
-    public bool canSee;
-    public bool canHear;
+    public Vector3 distanceFromPlayer; // how far the player from this enemy ai
+    public bool canSee; // can see
+    public bool canHear; // can hear
     private Transform tf;
-    public Transform pt;
+
 	// Use this for initialization
 	void Start () {
         tf = GetComponent<Transform>();
-        GameManager.instance.enemyAI = gameObject;
+		GameManager.instance.enemy.Add(this.gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         
+		//this chunk of code does a raycast to check to see if the enemy ai can see the player
         distanceFromPlayer = GameManager.instance.player.transform.position - tf.position;
         distanceFromPlayer.Normalize();
         RaycastHit2D hit2D = Physics2D.Raycast(tf.position, distanceFromPlayer, GameManager.instance.enemySightDistance);
         Debug.DrawRay(tf.position, distanceFromPlayer * GameManager.instance.enemySightDistance, Color.green);
-        Debug.Log(hit2D.collider.name);
+
         //this is the normal state of the AI it spins
         if (!canSee && !canHear)
         {
@@ -41,6 +42,7 @@ public class Enemy_AI_controller : controller {
         //Checks to see if ai can hear the player
         if (canHear == true)
         {
+			//if can hear checks if the enemy ai can see the player
             pawn.HearPlayer();
 			if (hit2D.collider != null && hit2D.collider.tag == "player")
 			{
@@ -57,9 +59,10 @@ public class Enemy_AI_controller : controller {
             }
             
         }
-        if (canSee == true)
+        if (canSee == true) // if the enemy ai can see the player chase the player and shoot at him
         {
             pawn.ChasePlayer();
-        }
+		
+		}
     }
 }

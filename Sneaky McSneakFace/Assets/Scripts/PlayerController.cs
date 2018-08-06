@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class PlayerController : controller {
 
-	// Use this for initialization
-	//void Start () {
 
-	//}
-	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space))
